@@ -11,16 +11,17 @@ class CheckLoggerTest extends DuskTestCase
     public function testCheckLogger(): void
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('https://app-staging.tick.com.au/login')
-                    ->type('email', 'singhgurjeet966+admin@gmail.com')
-                    ->type('password', 'fb@$$AC$ign@TURE')
+            $browser->visit(config('dusk_urls.login'))
+                    ->type('email', env('ADMIN_EMAIL'))
+                    ->type('password', env('ADMIN_PASSWORD'))
                     ->press('LOG IN')
                     ->pause(2000)
                     ->assertPathIs('/dashboard')
                     ->assertSee('Profile')
                     ->pause(2000)
 
-                    ->visit('https://app-staging.tick.com.au/logger')
+                    ->visit(config('dusk_urls.logger'))
+                    ->pause(1000)
                     ->assertSee('System Logger');
         });
     }

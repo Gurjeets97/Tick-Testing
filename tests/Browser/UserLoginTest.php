@@ -12,9 +12,9 @@ class UserLoginTest extends DuskTestCase
     public function testUserCanLogin()
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('https://app-staging.tick.com.au/login')
-                    ->type('email', 'singhgurjeet966+user@gmail.com')
-                    ->type('password', 'fb@$$AC$ign@TURE')
+            $browser->visit(config('dusk_urls.login'))
+                    ->type('email', env('USER_EMAIL'))
+                    ->type('password', env('USER_PASSWORD'))
                     ->press('LOG IN')
                     ->assertPathIs('/dashboard')
                     ->assertSee('Profile');

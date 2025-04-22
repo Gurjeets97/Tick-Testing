@@ -11,15 +11,15 @@ class CreateCodesTypeAdminTest extends DuskTestCase
     public function testCreateCodesTypeAdmin(): void
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('https://app-staging.tick.com.au/login')
-                    ->type('email', 'singhgurjeet966+admin@gmail.com')
-                    ->type('password', 'fb@$$AC$ign@TURE')
+            $browser->visit(config('dusk_urls.login'))
+                    ->type('email', env('ADMIN_EMAIL'))
+                    ->type('password', env('ADMIN_PASSWORD'))
                     ->press('LOG IN')
                     ->pause(2000)
                     ->assertPathIs('/dashboard')
                     ->assertSee('Profile')
 
-                    ->visit('https://app-staging.tick.com.au/code_types')
+                    ->visit(config('dusk_urls.code_types'))
                     ->pause(2000)
                     ->assertSee('All Code Types')
 

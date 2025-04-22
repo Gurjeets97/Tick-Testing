@@ -12,17 +12,17 @@ class RemoveAssignCodesAdminTest extends DuskTestCase
     public function testRemoveAssignCodesAdmin(): void
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('https://app-staging.tick.com.au/login')
-                    ->type('email', 'singhgurjeet966+admin@gmail.com')
-                    ->type('password', 'fb@$$AC$ign@TURE')
+            $browser->visit(config('dusk_urls.login'))
+                    ->type('email', env('ADMIN_EMAIL'))
+                    ->type('password', env('ADMIN_PASSWORD'))
                     ->press('LOG IN')
                     ->pause(2000)
                     ->assertPathIs('/dashboard')
                     ->assertSee('Profile')
 
-                    ->visit('https://app-staging.tick.com.au/organisations')
+                    ->visit(config('dusk_urls.organisations'))
                     ->pause(200)
-                    ->visit('https://app-staging.tick.com.au/organisations/9')
+                    ->visit(config('dusk_urls.organisation_detail'))
                     ->pause(200)
                     ->assertPathIs('/organisations/9')
                     ->assertSee('je')

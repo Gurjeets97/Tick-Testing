@@ -12,12 +12,11 @@ class UserProfileTest extends DuskTestCase
     public function testUserProfile(): void
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('https://app-staging.tick.com.au/login')
-                    ->type('email', 'singhgurjeet966+user@gmail.com')
-                    ->type('password', 'fb@$$AC$ign@TURE')
+            $browser->visit(config('dusk_urls.login'))
+                    ->type('email', env('USER_EMAIL'))
+                    ->type('password', env('USER_PASSWORD'))
                     ->press('LOG IN')
                     ->waitForLocation('/dashboard')
-                    ->visit('https://app-staging.tick.com.au/dashboard')
                     ->waitForText('Profile')
 
                     ->assertSee('Profile')

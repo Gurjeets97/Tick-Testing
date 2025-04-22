@@ -12,9 +12,9 @@ class EditOrganisationTest extends DuskTestCase
     public function testEditOrganisationFromAdminDashboard()
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('https://app-staging.tick.com.au/login')
-                    ->type('email', 'singhgurjeet966+admin@gmail.com')
-                    ->type('password', 'fb@$$AC$ign@TURE')
+            $browser->visit(config('dusk_urls.login'))
+                    ->type('email', env('ADMIN_EMAIL'))
+                    ->type('password', env('ADMIN_PASSWORD'))
                     ->press('LOG IN')
                     ->pause(2000)
                     ->assertPathIs('/dashboard')
@@ -22,7 +22,7 @@ class EditOrganisationTest extends DuskTestCase
                     ->pause(2000)
 
 
-                    ->visit('https://app-staging.tick.com.au/organisations')
+                    ->visit(config('dusk_urls.organisations'))
                     ->pause(2000)
                     ->assertPathIs('/organisations')
                     ->assertSee('All Organisations')

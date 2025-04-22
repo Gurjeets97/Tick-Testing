@@ -11,18 +11,18 @@ class EditReportTemplatesTest extends DuskTestCase
     public function testEditReportTemplates(): void
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('https://app-staging.tick.com.au/login')
-                    ->type('email', 'singhgurjeet966+admin@gmail.com')
-                    ->type('password', 'fb@$$AC$ign@TURE')
+            $browser->visit(config('dusk_urls.login'))
+                    ->type('email', env('ADMIN_EMAIL'))
+                    ->type('password', env('ADMIN_PASSWORD'))
                     ->press('LOG IN')
                     ->pause(2000)
                     ->assertPathIs('/dashboard')
 
-                    ->visit('https://app-staging.tick.com.au/report_templates')
+                    ->visit(config('dusk_urls.report_templates'))
                     ->pause(2000)
                     ->assertSee('All Templates')
 
-                    ->visit('https://app-staging.tick.com.au/report_templates/21/edit')
+                    ->visit(config('dusk_urls.edit_report_template'))
                     ->pause(2000)
                     ->assertPathContains('/report_templates/21/edit') 
                     ->assertSee('Edit Report Template')
