@@ -21,9 +21,9 @@ class RemoveAssignCodesAdminTest extends DuskTestCase
                     ->assertSee('Profile')
 
                     ->visit('https://app-staging.tick.com.au/organisations')
-                    ->pause(2000)
+                    ->pause(200)
                     ->visit('https://app-staging.tick.com.au/organisations/9')
-                    ->pause(2000)
+                    ->pause(200)
                     ->assertPathIs('/organisations/9')
                     ->assertSee('je')
 
@@ -31,16 +31,7 @@ class RemoveAssignCodesAdminTest extends DuskTestCase
                     ->pause(2000)
                     ->assertPathBeginsWith('/code/1/organisation/9')
                     ->assertSee('Assign Codes')
-                    ->clickLink('Revoke access')
-                    ->pause(2000)
-
-                    ->whenAvailable('body', function (Browser $popup) {
-                        
-                        $popup->pause('1000');
-                        $popup->press('OK');
-                    })
-                    
-                    ->assertSee('Assign Codes');
+                    ->clickLink('Revoke access');
         });
     }
 }

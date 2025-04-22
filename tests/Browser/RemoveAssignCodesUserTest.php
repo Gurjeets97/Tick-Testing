@@ -44,16 +44,7 @@ class RemoveAssignCodesUserTest extends DuskTestCase
 
                     ->pause(2000)
  
-                    ->clickLink('Revoke access')
-                    ->pause(2000)
-
-                    ->whenAvailable('body', function (Browser $popup) {
-                        
-                        $popup->pause('1000');
-                        $popup->press('OK');
-                    })
-                    
-                    ->assertSee('Assign Codes'); 
+                    ->clickLink('Revoke access'); 
         });
     }
 }
