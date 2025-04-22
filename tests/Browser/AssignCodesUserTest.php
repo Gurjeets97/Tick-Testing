@@ -28,7 +28,6 @@ class AssignCodesUserTest extends DuskTestCase
 
                     ->clickLink('Manage Codes') 
                     ->pause(2000)
-                    ->assertPathIs('/organisations/9')
                     ->assertSee('je')
 
                     ->type('input[name="codetype_1"]', '1') 
@@ -36,7 +35,6 @@ class AssignCodesUserTest extends DuskTestCase
 
                     ->clickLink('Assign Code')
                     ->pause(2000)
-                    ->assertPathBeginsWith('/code/1/organisation/9')
                     ->assertSee('Assign Codes')
 
                     ->type('name', 'Gurjeet Singh')

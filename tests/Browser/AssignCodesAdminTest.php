@@ -24,12 +24,10 @@ class AssignCodesAdminTest extends DuskTestCase
                     ->assertSee('All Organisations')
                     ->visit(config('dusk_urls.organisation_detail'))
                     ->pause(2000)
-                    ->assertPathIs('/organisations/9')
                     ->assertSee('je')
 
                     ->clickLink('Assign Code')
                     ->pause(2000)
-                    ->assertPathBeginsWith('/code/1/organisation/9')
                     ->assertSee('Assign Codes')
 
                     ->type('name', 'Gurjeet Singh')

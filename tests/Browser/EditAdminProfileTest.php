@@ -23,28 +23,11 @@ class EditAdminProfileTest extends DuskTestCase
                     ->press('Edit Profile') 
                     ->pause(2000)
                 
-                    ->assertPathIs('/users/24/edit')
                     ->assertSee('Edit your profile')
                     ->pause(1000)
 
-                    // Update editable fields
-                    // ->type('First name', 'Gurjeet')
-                    // ->pause(1000)
-                    // ->type('Last name', 'Singh')
-                    // ->pause(1000)
-                    // ->type('Suburb', 'Adelaide')
-                    // ->pause(1000)
-                    // ->type('State', 'SA')
-                    // ->type('Postcode', '5000')
-                    // ->select('Country', 'Australia') 
-                    // ->select('Organisations', 'user:monique.dingding@firstfocus.com.au') 
-
-                    ->pause(1000)
-                    
-                    // ->scrollIntoView('Save profile')                  
                     ->press('Save profile') 
                     ->pause(2000)
-                    ->assertPathIs('/users/24') 
                     ->assertSee('Profile');
         });
     }

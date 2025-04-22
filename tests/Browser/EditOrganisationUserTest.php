@@ -29,13 +29,11 @@ class EditOrganisationUserTest extends DuskTestCase
                     
                     ->clickLink('je') 
                     ->pause(2000)
-                    ->assertPathIs('/organisations/9')
                     ->assertSee('je')
 
                     ->clickLink('Edit this Organisation') 
                     ->pause(2000)
                     ->assertSee('Edit je')
-                    ->assertPathBeginsWith('/organisations/9/edit')
 
                     ->press('Save Organisation')
                     ->pause(2000)

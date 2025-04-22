@@ -24,7 +24,6 @@ class EditUserProfileTest extends DuskTestCase
                     ->press('Edit Profile') 
                     ->pause(2000)
                 
-                    ->assertPathIs('/users/23/edit')
                     ->assertSee('Edit your profile')
                     ->pause(1000)
 

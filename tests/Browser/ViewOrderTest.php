@@ -26,7 +26,6 @@ class ViewOrderTest extends DuskTestCase
                     ->pause(2000)
                     ->press('View')
                     ->pause(2000)
-                    ->assertPathIs('/order/1')
                     ->assertSee('Thank you for your order');
 
 

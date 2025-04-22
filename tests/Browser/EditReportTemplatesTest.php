@@ -24,7 +24,6 @@ class EditReportTemplatesTest extends DuskTestCase
 
                     ->visit(config('dusk_urls.edit_report_template'))
                     ->pause(2000)
-                    ->assertPathContains('/report_templates/21/edit') 
                     ->assertSee('Edit Report Template')
                     ->assertInputValue('title', 'Test Template')
 

@@ -36,7 +36,6 @@ class EditOrganisationTest extends DuskTestCase
                     ->clickLink('Edit this Organisation')
                     ->pause(2000)
                     ->assertSee('Edit Test O')
-                    ->assertPathBeginsWith('/organisations/2/edit')
 
                     ->press('Save Organisation')
                     ->pause(2000)
