@@ -10,4 +10,6 @@ return [
     'report_templates' => 'https://app-staging.tick.com.au/report_templates',
     'edit_report_template' => 'https://app-staging.tick.com.au/report_templates/21/edit',
     'order' => 'https://app-staging.tick.com.au/order',
+    'groups' => 'https://app-staging.tick.com.au/groups',
+    'questions' => 'https://app-staging.tick.com.au/public/questions',
 ];
